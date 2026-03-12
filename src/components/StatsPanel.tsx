@@ -35,7 +35,19 @@ const StatsPanel = ({ type }: { type?: StatDisplayTypes }) => {
       {mode.value === "timed" && (
         <StatDisplay
           name="Time"
-          value={`0:${countdownTimer < 10 ? `0${countdownTimer}` : countdownTimer}`}
+          value={
+            <span
+              className={
+                countdownTimer >= 50
+                  ? "warning-lvl-one"
+                  : countdownTimer >= 40
+                    ? "warning-lvl-two"
+                    : ""
+              }
+            >
+              0:{countdownTimer < 10 ? `0${countdownTimer}` : countdownTimer}
+            </span>
+          }
           type={type}
         />
       )}

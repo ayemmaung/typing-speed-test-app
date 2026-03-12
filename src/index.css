@@ -101,8 +101,17 @@ body {
 .stat-value .wrong {
   @apply text-(--red-500);
 }
+
 .stat-value .neutral {
   @apply text-(--neutral-500);
+}
+
+.stat-value .warning-lvl-one {
+  @apply text-(--red-500);
+}
+
+.stat-value .warning-lvl-two {
+  @apply text-(--yellow-400);
 }
 
 .stat-radio-select {
