@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "@assets/*": ["assets/*"],
+      "@layout/*": ["layout/*"],
+      "@components/*": ["components/*"],
+      "@ui/*": ["ui/*"],
+      "@types/*": ["types/*"],
+      "@data/*": ["data/*"]
+    },
+    "module": "esnext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts*", "src/**/*.json"]
+}
