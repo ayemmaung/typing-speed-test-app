@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* ==============================
+     COLORS
+  ============================== */
+
+  /* Neutral */
+  --neutral-900: hsl(0, 0%, 7%);
+  --neutral-800: hsl(0, 0%, 15%);
+  --neutral-500: hsl(240, 3%, 46%);
+  --neutral-400: hsl(240, 1%, 59%);
+  --neutral-0: hsl(0, 0%, 100%);
+
+  /* Blue */
+  --blue-600: hsl(214, 100%, 55%);
+  --blue-400: hsl(210, 100%, 65%);
+
+  /* Red */
+  --red-500: hsl(354, 63%, 57%);
+
+  /* Green */
+  --green-500: hsl(140, 63%, 57%);
+
+  /* Yellow */
+  --yellow-400: hsl(49, 85%, 70%);
+
+  /* ==============================
+     TYPOGRAPHY
+  ============================== */
+
+  /* Font Family */
+  --font-family-base: "Sora", sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font Sizes */
+  --font-size-label: 16px;
+}
+
+* {
+  font-family: var(--font-family-base);
+}
+
+body {
+  @apply bg-(--neutral-900);
+  @apply text-(--neutral-0);
+}
+
+.stat-panel {
+  @apply w-full lg:w-fit;
+  @apply flex items-center;
+}
+
+.stat-panel.card {
+  @apply flex-col lg:flex-row gap-3;
+}
+
+.stat-display {
+  @apply flex-1;
+  @apply flex flex-col md:flex-row gap-1 md:gap-3 items-center justify-center;
+  @apply px-3 lg:px-5;
+}
+
+.stat-display:not(:last-child) {
+  @apply border-r border-(--neutral-800);
+}
+
+.stat-display.card {
+  @apply w-full md:w-30 lg:w-40;
+  @apply bg-(--neutral-900);
+  @apply border border-(--neutral-800);
+  @apply rounded-lg;
+  @apply items-start;
+  @apply px-5 py-3;
+  @apply flex-col;
+}
+
+.stat-display.personal-best {
+  @apply flex flex-row;
+  @apply gap-2;
+}
+
+.stat-name {
+  @apply text-lg text-(--neutral-400);
+}
+
+.stat-value {
+  @apply text-2xl font-bold;
+  letter-spacing: 0.1rem;
+}
+
+.stat-value .correct {
+  @apply text-(--green-500);
+}
+
+.stat-value .wrong {
+  @apply text-(--red-500);
+}
+.stat-value .neutral {
+  @apply text-(--neutral-500);
+}
+
+.stat-radio-select {
+  @apply flex gap-3;
+}
+
+.stat-display.personal-best .stat-name,
+.stat-display.personal-best .stat-value {
+  @apply text-lg font-(--font-weight-regular);
+}
+
+.btn {
+  @apply cursor-pointer;
+  @apply px-4 py-2;
+}
+
+.dropdown-container {
+  @apply relative;
+  @apply bg-transparent;
+}
+
+.dropdown-btn {
+  @apply w-full;
+  @apply flex justify-center gap-4;
+  @apply border border-gray-300;
+  @apply rounded-lg;
+}
+
+.dropdown-select-options {
+  @apply absolute;
+  @apply mt-12;
+  @apply w-full;
+  @apply bg-(--neutral-800);
+  @apply border border-gray-300;
+  @apply rounded-lg;
+  @apply z-10;
+}
+
+.dropdown-item {
+  @apply flex flex-col;
+}
+
+.dropdown-option {
+  @apply px-4 py-2;
+  @apply cursor-pointer;
+}
+
+.dropdown-option.radio-select-option {
+  @apply flex items-center gap-2;
+}
+
+.dropdown-option:hover {
+  @apply bg-(--neutral-500);
+}
+
+.dropdown-option:first-child {
+  @apply rounded-t-lg;
+}
+.dropdown-option:last-child {
+  @apply rounded-b-lg;
+}
+
+.dropdown-option:not(:last-child) {
+  @apply border-b border-(--neutral-500);
+}
+
+.dropdown-option-radio-input {
+  @apply mr-2;
+  @apply hover:cursor-pointer;
+}
+
+.app {
+  @apply min-w-screen h-screen;
+  @apply p-3 lg:p-5 lg:px-10;
+  @apply flex flex-col;
+}
+
+.header {
+  @apply flex justify-between items-center;
+  @apply mb-5;
+}
+
+.header-left {
+  @apply flex items-center gap-3;
+}
+
+.header-title-content {
+  @apply hidden lg:flex lg:flex-col;
+}
+
+.header-title {
+  @apply text-2xl font-bold;
+}
+
+.header-description {
+  @apply text-sm text-(--neutral-500);
+}
+
+.app-layout {
+  @apply flex-1;
+  @apply flex flex-col;
+}
+
+.app-layout > *:not(:last-child) {
+  @apply pb-3;
+  @apply border-b-2 border-(--neutral-800);
+}
+
+.completed-layout {
+  @apply h-full;
+  @apply flex flex-col items-center gap-4 lg:gap-8;
+  @apply py-5;
+}
+
+.completed-layout-body {
+  @apply relative;
+  @apply px-3;
+  @apply w-full;
+  @apply flex flex-col items-center gap-4 lg:gap-8;
+}
+
+.completed-layout-header {
+  @apply px-5 text-center;
+  @apply flex flex-col items-center justify-center gap-8;
+}
+
+.completed-layout-heading {
+  @apply font-bold text-2xl text-center;
+  @apply mb-1 lg:mb-3;
+  @apply bg-(--neutral-900);
+}
+
+.completed-layout-description {
+  @apply text-(--neutral-400);
+  @apply bg-(--neutral-900);
+}
+
+.completed-layout-footer {
+  @apply flex-1;
+}
+
+.pattern-star,
+.pattern-confetti {
+  @apply absolute;
+}
+
+.pattern-star.one {
+  @apply bottom-5 right-5;
+}
+
+.pattern-star.two {
+  @apply top-5 left-5;
+}
+
+.pattern-confetti {
+  @apply bottom-0 left-0;
+}
+
+.completed-icon {
+  @apply relative;
+}
+
+.completed-icon-ping-ring {
+  @apply absolute;
+  @apply top-1/2 left-1/2;
+  @apply -translate-x-1/2 -translate-y-1/2;
+  @apply rounded-full;
+  @apply bg-(--green-500);
+  @apply -z-10;
+}
+
+.completed-icon-ping-ring.one {
+  @apply w-20 h-20;
+  @apply opacity-20;
+}
+
+.completed-icon-ping-ring.two {
+  @apply w-24 h-24;
+  @apply opacity-10;
+}
+
+.stats-container {
+  @apply flex flex-col lg:flex-row lg:justify-between gap-3;
+}
+
+.stats-container-right {
+  @apply gap-3;
+}
+
+.stats-container-right > * {
+  @apply flex-1;
+}
+
+.typing-area {
+  @apply flex-1;
+  @apply relative;
+  @apply p-3;
+  @apply z-10;
+  @apply flex flex-col gap-3;
+}
+
+.typing-test {
+  @apply text-2xl lg:text-4xl;
+  @apply leading-relaxed;
+  @apply text-(--neutral-400);
+  @apply flex-1;
+}
+
+.typing-footer {
+  @apply flex items-center justify-center;
+  @apply py-3;
+  @apply border-t-2 border-(--neutral-800);
+}
+
+.typing-char.correct {
+  @apply text-(--green-500);
+}
+
+.typing-char.wrong {
+  @apply text-(--red-500);
+  @apply underline;
+}
+
+.typing-char.current {
+  @apply bg-(--neutral-500)/50;
+  @apply rounded-xs;
+}
+
+.typing-user-input {
+  @apply p-3;
+  @apply absolute inset-x-0 top-0 left-0;
+  @apply text-xl;
+  @apply leading-relaxed;
+  @apply bg-transparent text-transparent;
+  @apply caret-transparent;
+  @apply outline-none;
+}
+
+.typing-overlay {
+  @apply absolute inset-0;
+  @apply flex flex-col gap-3 items-center justify-center;
+  @apply bg-[#121212cc] backdrop-blur-xs;
+}
+
+.overlay-btn {
+  @apply rounded-lg;
+}
+
+.overlay-text {
+  @apply font-medium;
+}
+
+.stat-btn {
+  @apply border border-(--neutral-400);
+  @apply rounded-lg;
+}
+
+.stat-btn:hover {
+  @apply border-(--neutral-0);
+}
+
+.stat-btn.active {
+  @apply border-(--blue-400);
+  @apply text-(--blue-400);
+}
+
+.restart-btn {
+  @apply flex items-center gap-2;
+  @apply bg-white hover:bg-gray-100 text-black;
+  @apply rounded-lg;
+}
+
+.restart-btn.black {
+  @apply bg-(--neutral-800) hover:bg-(--neutral-500) text-white;
+}
+
+.restart-icon.black {
+  filter: invert(100%) brightness(100%);
+}
